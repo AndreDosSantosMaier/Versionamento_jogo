@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public GameObject pistol;
     public GameObject machinegun;
     public Transform PlayerPos;
-    public static int equippedGun = 1; //verifica qual arma esta selecionada
+    public static int equippedGun = 0; //verifica qual arma esta selecionada
     Vector2 moveInput;
     public static float moveSpeed = 5; //velocidade do player
     Animator anim;
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     }
     void playerMove() //comando de movimentação de personagem
     {
-        moveInput.x = Input.GetAxis("Horizontal"); 
+        moveInput.x = Input.GetAxis("Horizontal");  
         moveInput.y = Input.GetAxis("Vertical");
         transform.Translate(moveInput * Time.deltaTime * moveSpeed);
 
@@ -51,13 +51,13 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Enemy")) //verifica se colidiu com um inimigo
         {
-            playerlives--;
+            playerlives--; //reduz 1 de vida
         }
-        if (playerlives <= 0)
+        if (playerlives <= 0) //se a qtd de vidas for menor ou = a 0 
         {
-            Destroy(gameObject);
+            Destroy(gameObject); //destroy o player
         }
     }
 }
