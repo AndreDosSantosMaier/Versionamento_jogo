@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,8 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject pistol;
     public GameObject machinegun;
+    public GameObject Shotgun;
     public Transform PlayerPos;
-    public static int equippedGun = 0; //verifica qual arma esta selecionada
+    public static int equippedGun = 3; //verifica qual arma esta selecionada
     Vector2 moveInput;
     public static float moveSpeed = 5; //velocidade do player
     Animator anim;
@@ -46,6 +46,11 @@ public class PlayerController : MonoBehaviour
         else if (equippedGun == 2) //caso a arma equipada seja a º2
         {
             Instantiate(machinegun,PlayerPos); //spawna uma metralhadora como filho do game object player
+            equippedGun = 0;// faz a variavel virar 0 para não spawnar pistolas infinitas
+        }
+        else if (equippedGun == 3) //caso a arma equipada seja a º3
+        {
+            Instantiate(Shotgun,PlayerPos); //spawna uma shptgun como filho do game object player
             equippedGun = 0;// faz a variavel virar 0 para não spawnar pistolas infinitas
         }
     }
