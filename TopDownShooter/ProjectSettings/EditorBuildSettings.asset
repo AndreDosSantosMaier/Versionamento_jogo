@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/TopDownShooter.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Manager.unity
+    guid: aca05408053d2c544a62e66db0ac580e
+  - enabled: 1
+    path: Assets/Scenes/CropShop.unity
+    guid: 43b7364926c863c4e8563520a0dcfcf3
+  - enabled: 1
+    path: Assets/Scenes/GunShop.unity
+    guid: abfa0184b225dae4988e101c3bb74536
   m_configObjects: {}

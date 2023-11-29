@@ -10,7 +10,7 @@ public class Pistol : MonoBehaviour
     public AudioSource shootFx;
     public GameObject Bullet;
     public Transform spawnBullet;
-    public static int PistolDamage = 3; //dano causado  quando a "PistolBullet" acertar os inimigos
+    public static int PistolDamage = 6; //dano causado  quando a "PistolBullet" acertar os inimigos
     public static float PistlfireRate = 0.40f; //variavel acessivel de outros scripts que muda a cadencia de disparo da
     public static float PistolbulletRange = 0.4f; //variavel acessivel de outros scripts que muda o range da arma
     private float canFire = -1f; //variavel usada no comando de fire rate

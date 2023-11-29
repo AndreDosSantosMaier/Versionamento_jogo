@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f56f94816273a114ba1c55d9cd622b92
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pistol: {fileID: 8213675706047632201, guid: 49e97e8f7f74d2047a35a5e71a74bc1d, type: 3}
+  - machinegun: {fileID: 2710508375175994217, guid: 7e173ecd755b48c4683b094fbdcc1792, type: 3}
+  - shotgun: {fileID: 505380099805727127, guid: f2b08777f9822ce419e7d0b23e1f11bb, type: 3}
+  - PlayerTopDownShooterPos: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

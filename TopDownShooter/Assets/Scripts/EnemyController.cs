@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
-{
-    
+{ 
     public float speed;
     GameObject Player;
     Animator anim;
     bool isAlive = true;
-    private int lives = 3;
+    private int lives = 6;
     public AudioSource deathFx;
-   
+    
     
 
 
@@ -27,6 +27,8 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         enemyMove(); //função que faz o inimigo
+
+        
     }
 
 
@@ -40,6 +42,10 @@ public class EnemyController : MonoBehaviour
         {
             lives-= MachineGun.MgDamage;//leva o dano da imposto no script "MachineGun"
         }
+        else if (collision.CompareTag("shotgunbullet")) //caso seja acertado por uma "MgBullet"
+        {
+            lives-= Shotgun.ShotgunlDamage;//leva o dano da imposto no script "Shotgun"
+        }
         if (lives <= 0) //caso a vida do inimigo chege a 0 ...
             {
                 deathFx.Play(); //toca o som de morte
@@ -47,6 +53,7 @@ public class EnemyController : MonoBehaviour
                 Destroy(gameObject.GetComponent<BoxCollider2D>()); //destroi a hitbox para as balas não acertarem os corpos mortos
                 isAlive = false; //muda o estado do inimigo para morto
                 Destroy(gameObject, 1.5f); //destroy o corpo depois de 1.5 segundos
+                Drop();
             }
     }
     
@@ -57,5 +64,16 @@ public class EnemyController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime ); //move o inimigo na direção do player
         }
     }
-    
+   
+
+
+    private void Drop()
+    {
+        if(Random.Range(0f, 1f) <= 0.3f)
+        {
+          IntToText.currency += 1;
+        }
+    }
 }
+    
+

@@ -11,8 +11,8 @@ public class MachineGun : MonoBehaviour
     public AudioSource shootFx;
     public GameObject Bullet;
     public Transform spawnBullet;
-    public static int MgDamage = 1; //dano causado  quando a "MgBullet" acertar os inimigos
-    public static float MgfireRate = 0.10f; //variavel que muda a cadencia de disparo da arma
+    public static int MgDamage = 2; //dano causado  quando a "MgBullet" acertar os inimigos
+    public static float MgfireRate = 0.15f; //variavel que muda a cadencia de disparo da arma
     public static float MgbulletRange = 0.3f; //variavel que muda o range da arma
     private float canFire = -1f; //variavel usada no comando de fire rate
    

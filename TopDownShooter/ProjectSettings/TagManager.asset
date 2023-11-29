@@ -8,6 +8,17 @@ TagManager:
   - Obstacle
   - pistolBullet
   - mgBullet
+  - portal
+  - gunshop
+  - cropshop
+  - playermanager
+  - playertopdown
+  - shotgunbullet
+  - manager
+  - swap
+  - pistol
+  - shotgun
+  - mg
   layers:
   - Default
   - TransparentFX

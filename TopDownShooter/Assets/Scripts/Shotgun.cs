@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,13 +9,15 @@ public class Shotgun : MonoBehaviour
 {
     SpriteRenderer sprite;
     public AudioSource shootFx;
-    public GameObject Bullet;
-    public Transform spawnBullet;
+    public GameObject projectile; 
+    public Transform gunPoint;
     public static int ShotgunlDamage = 3; //dano causado  quando a "shotgunBullet" acertar os inimigos
-    public static float ShotgunfireRate = 0.40f; //variavel acessivel de outros scripts que muda a cadencia de disparo da arma
-    public static float ShotgunbulletRange = 0.12f; //variavel acessivel de outros scripts que muda o range da arma
+    public static float ShotgunfireRate = 0.6f; //variavel acessivel de outros scripts que muda a cadencia de disparo da arma
+    public static float ShotgunbulletRange = 0.15f; //variavel acessivel de outros scripts que muda o range da arma
     private float canFire = -1f; //variavel usada no comando de fire rate
-   
+    private int bulletCount = 5;
+    float spread = 15f;
+
     
     // Start is called before the first frame update
 
@@ -22,6 +25,7 @@ public class Shotgun : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        
 
     }
 
@@ -37,7 +41,15 @@ public class Shotgun : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0)&&(Time.time > canFire)) //usa o botão m1 para atirar e verifica o se o player pode atirar
         {
             canFire = Time.time + ShotgunfireRate; //funciona como millis do arduino
-            Instantiate(Bullet, spawnBullet.position, transform.rotation); //spawna a bala no game object SpawnBullet que esta dentro do objeto da arma
+            quaternion newRot = gunPoint.rotation;
+            
+            for (int i = 0; i < bulletCount; i++)
+            {
+                float addedOffset = ((bulletCount / 2) - i * spread);
+                
+                newRot = Quaternion.Euler(gunPoint.eulerAngles.x,gunPoint.eulerAngles.y,gunPoint.eulerAngles.z + addedOffset);
+                Instantiate(projectile,gunPoint.position,newRot);
+            }
             shootFx.Play(); //toca o som de tiro
         }
     }
@@ -53,5 +65,4 @@ public class Shotgun : MonoBehaviour
 
         sprite.flipY = (mousePos.x < screenPoint.x); //caso a arma esteja a esquerda do personagem ela não fica de cabeça pra baixo
     }
-    
 }
