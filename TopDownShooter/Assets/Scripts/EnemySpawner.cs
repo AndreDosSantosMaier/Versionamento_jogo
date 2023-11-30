@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] Transform[] spawnPoints; //cria um vetor para os spawns de inimigos
     [SerializeField] GameObject enemy;
+    public GameObject TankEnemy;
+    public GameObject FastEnemy;
     GameObject Player;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,19 @@ public class EnemySpawner : MonoBehaviour
         if (Player != null)
         {
             int index = Random.Range(0, spawnPoints.Length); //seleciona um numero aleatorio do vetor de spawns
-            Instantiate(enemy, spawnPoints[index].position, Quaternion.identity);
+            
+            if (Random.Range(0, 3) == 0)
+            {
+                Instantiate(enemy, spawnPoints[index].position, Quaternion.identity);
+            }
+            if (Random.Range(0, 3) == 1)
+            {
+                Instantiate(TankEnemy, spawnPoints[index].position, Quaternion.identity);
+            }
+            if (Random.Range(0, 3) == 2)
+            {
+                Instantiate(FastEnemy, spawnPoints[index].position, Quaternion.identity);
+            }
         }
     }
 }

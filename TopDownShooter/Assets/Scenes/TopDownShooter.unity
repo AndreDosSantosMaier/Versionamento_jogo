@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 13122067}
   m_Layer: 0
   m_Name: rightcerca
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1074,7 +1074,7 @@ GameObject:
   - component: {fileID: 348699812}
   m_Layer: 0
   m_Name: topcerca
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1151,7 +1151,7 @@ GameObject:
   - component: {fileID: 379402989}
   m_Layer: 0
   m_Name: leftcerca
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1700,6 +1700,8 @@ MonoBehaviour:
   - {fileID: 1694717942}
   - {fileID: 2026037216}
   enemy: {fileID: 3099430400439222301, guid: 783e44b6c673b7141b998332e96b96b9, type: 3}
+  TankEnemy: {fileID: 3334509044302923561, guid: a160c6e7415fd2044ab91bc84b1c8246, type: 3}
+  FastEnemy: {fileID: 5663054674109374847, guid: 65a81162da0f9a246a0935ec2adadf1c, type: 3}
 --- !u!1001 &785911790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1769,7 +1771,7 @@ GameObject:
   - component: {fileID: 824516336}
   m_Layer: 0
   m_Name: bottomcerca
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
